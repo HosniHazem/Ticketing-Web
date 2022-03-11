@@ -14,7 +14,7 @@ class CreateItem extends Migration
     public function up()
     {
         Schema::create('_item', function (Blueprint $table) {
-            $table->increment('item_id');      
+            $table->increments('item_id');
             $table->string('sub_category_id');
             $table->string('name');
             $table->string('description');
@@ -25,7 +25,7 @@ class CreateItem extends Migration
             $table->integer('external_code');
             $table->timestamps();
         });
-        
+
     }
 
     /**

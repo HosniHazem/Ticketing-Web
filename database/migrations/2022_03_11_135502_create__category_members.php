@@ -14,7 +14,7 @@ class CreateCategoryMembers extends Migration
     public function up()
     {
         Schema::create('_category_members', function (Blueprint $table) {
-            $table->increment('category_id');      
+            $table->increments('category_id');
             $table->integer('user_id');
             $table->string('category_name');
             $table->timestamps();

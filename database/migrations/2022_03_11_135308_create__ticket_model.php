@@ -14,7 +14,7 @@ class CreateTicketModel extends Migration
     public function up()
     {
         Schema::create('_ticket_model', function (Blueprint $table) {
-            $table->increment('ticket_model_id');      
+            $table->increments('ticket_model_id');
             $table->string('name');
             $table->string('description');
             $table->boolean('is_active');

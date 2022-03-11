@@ -14,7 +14,7 @@ class CreateUserManagement extends Migration
     public function up()
     {
         Schema::create('_user_management', function (Blueprint $table) {
-            $table->increment('user_id');      
+            $table->increments('user_id');
             $table->integer('role_id');
             $table->string('display_name');
             $table->string('user_name');
@@ -32,7 +32,7 @@ class CreateUserManagement extends Migration
             $table->string('organization');
             $table->boolean('is_sendmail_password');
             $table->string('description');
-            $table->blob('profile_picture');
+            $table->binary('profile_picture');
             $table->boolean('is_active');
             $table->datetime('created_date');
             $table->integer('external_code');
