@@ -14,7 +14,12 @@ class CreateLevels extends Migration
     public function up()
     {
         Schema::create('levels', function (Blueprint $table) {
-            $table->id();
+            $table->increments('level_id');
+            $table->string("name");
+            $table->string("description");
+            $table->boolean("Is_Active");
+            $table->boolean("Is_Defaults");
+            $table->datetime("created_date");
             $table->timestamps();
         });
     }

@@ -14,7 +14,15 @@ class CreateComments extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->id();
+            $table->increments('CommentId');
+            $table->integer("AuthorId");
+            $table->integer("ParentCommentId");
+            $table->integer("TicketId");
+            $table->string("Boby");
+            $table->datetime("CreatedDate");
+            $table->datetime("update_date");
+
+
             $table->timestamps();
         });
     }

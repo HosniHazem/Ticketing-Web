@@ -14,7 +14,13 @@ class CreateRequestType extends Migration
     public function up()
     {
         Schema::create('_request_type', function (Blueprint $table) {
-            $table->id();
+            $table->increments('request_type_id');
+            $table->string("name");
+            $table->string("description");
+            $table->boolean("Is_Active");
+            $table->boolean("Is_Defaults");
+            $table->boolean("Is_client_visible");
+            $table->datetime("created_date");
             $table->timestamps();
         });
     }

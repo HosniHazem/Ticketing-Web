@@ -14,7 +14,13 @@ class CreateTicketAttachment extends Migration
     public function up()
     {
         Schema::create('_ticket_attachment', function (Blueprint $table) {
-            $table->id();
+            $table->increments('ticket_attachment_id');
+            $table->integer("TicketID");
+            $table->string("file_name");
+            $table->string("display_name");
+            $table->string("extension");
+            $table->integer("file_size");
+            $table->datetime("created_date");
             $table->timestamps();
         });
     }
