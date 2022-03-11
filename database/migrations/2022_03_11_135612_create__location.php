@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDepartments extends Migration
+class CreateLocation extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateDepartments extends Migration
      */
     public function up()
     {
-        Schema::create('departments', function (Blueprint $table) {
-            $table->increments('DepartmentId');
-            $table->string('Name');
-            $table->string('Description');
+        Schema::create('_location', function (Blueprint $table) {
+            $table->increment('location_id');      
+            $table->string('name');
+            $table->string('description');
             $table->boolean('is_active');
-            $table->datetime('CreatedDate');
+            $table->boolean('is_default');
+            $table->boolean('is_client_visible');
+            $table->datetime('created_date');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateDepartments extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('_location');
     }
 }

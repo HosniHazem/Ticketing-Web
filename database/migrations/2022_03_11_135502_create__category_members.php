@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDepartments extends Migration
+class CreateCategoryMembers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateDepartments extends Migration
      */
     public function up()
     {
-        Schema::create('departments', function (Blueprint $table) {
-            $table->increments('DepartmentId');
-            $table->string('Name');
-            $table->string('Description');
-            $table->boolean('is_active');
-            $table->datetime('CreatedDate');
+        Schema::create('_category_members', function (Blueprint $table) {
+            $table->increment('category_id');      
+            $table->integer('user_id');
+            $table->string('category_name');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateDepartments extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('_category_members');
     }
 }
