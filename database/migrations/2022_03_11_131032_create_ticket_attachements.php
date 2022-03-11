@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTicketModel extends Migration
+class CreateTicketAttachements extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateTicketModel extends Migration
      */
     public function up()
     {
-        Schema::create('_ticket_model', function (Blueprint $table) {
-            $table->increment('ticket_model_id');      
-            $table->string('name');
-            $table->string('description');
-            $table->boolean('is_active');
-            $table->datetime('created_date');
+        Schema::create('ticket_attachements', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateTicketModel extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_ticket_model');
+        Schema::dropIfExists('ticket_attachements');
     }
 }
