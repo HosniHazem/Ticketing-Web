@@ -14,7 +14,7 @@ class CreateStatus extends Migration
     public function up()
     {
         Schema::create('_status', function (Blueprint $table) {
-            $table->increment('statu_id');      
+            $table->increments('status_id');
             $table->string('name');
             $table->string('description');
             $table->boolean('is_closed');
