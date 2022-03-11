@@ -14,8 +14,14 @@ class CreateTicketCloseModel extends Migration
     public function up()
     {
         Schema::create('_ticket_close_model', function (Blueprint $table) {
-            $table->id();
+            $table->increment('ticket_attachement_id');
+            $table->string('name');
+            $table->string('description');
+            $table->boolean('is_active');
+            $table->boolean('is_default');
+            $table->datetime('created_date');
             $table->timestamps();
+            
         });
     }
 

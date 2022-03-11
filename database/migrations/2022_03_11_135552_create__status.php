@@ -14,7 +14,14 @@ class CreateStatus extends Migration
     public function up()
     {
         Schema::create('_status', function (Blueprint $table) {
-            $table->id();
+            $table->increment('statu_id');      
+            $table->string('name');
+            $table->string('description');
+            $table->boolean('is_closed');
+            $table->boolean('is_active');
+            $table->boolean('is_default');
+            $table->boolean('is_client_visible');
+            $table->datetime('created_date');
             $table->timestamps();
         });
     }
