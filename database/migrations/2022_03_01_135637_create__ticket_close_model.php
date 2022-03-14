@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItem extends Migration
+class CreateTicketCloseModel extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,16 @@ class CreateItem extends Migration
      */
     public function up()
     {
-        Schema::create('_item', function (Blueprint $table) {
-            $table->increments('item_id');
-            $table->string('sub_category_id');
+        Schema::create('ticket_close_models', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('name');
             $table->string('description');
             $table->boolean('is_active');
             $table->boolean('is_default');
-            $table->boolean('is_client_visible');
             $table->datetime('created_date');
-            $table->integer('external_code');
             $table->timestamps();
-        });
 
+        });
     }
 
     /**
@@ -35,6 +32,6 @@ class CreateItem extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_item');
+        Schema::dropIfExists('_ticket_close_model');
     }
 }

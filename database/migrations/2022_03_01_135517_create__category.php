@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoles extends Migration
+class CreateCategory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateRoles extends Migration
      */
     public function up()
     {
-        Schema::create('_roles', function (Blueprint $table) {
-            $table->increments('role_id');
+        Schema::create('category', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('name');
             $table->string('description');
-            $table->boolean('is_agent');
-            $table->boolean('is_client');
             $table->boolean('is_active');
+            $table->boolean('is_default');
+            $table->boolean('is_client_visible');
             $table->datetime('created_date');
-            $table->boolean('is_manager');
+            $table->integer('external_code');
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateRoles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_roles');
+        Schema::dropIfExists('_category');
     }
 }

@@ -17,7 +17,8 @@ class CreateComments extends Migration
             $table->increments('CommentId');
             $table->integer("AuthorId");
             $table->integer("ParentCommentId");
-            $table->integer("TicketId");
+            $table->integer('TicketId')->unsigned();
+            $table->foreign('TicketId')->references('id')->on('tickets')->onDelete('cascade')->onUpdate('cascade');
             $table->string("Boby");
             $table->datetime("CreatedDate");
             $table->datetime("update_date");

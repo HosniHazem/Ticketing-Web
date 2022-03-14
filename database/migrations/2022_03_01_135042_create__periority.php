@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLevels extends Migration
+class CreatePeriority extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateLevels extends Migration
      */
     public function up()
     {
-        Schema::create('levels', function (Blueprint $table) {
-            $table->increments('level_id');
+        Schema::create('priority', function (Blueprint $table) {
+            $table->increments('id');
             $table->string("name");
             $table->string("description");
+            $table->string("color");
             $table->boolean("Is_Active");
             $table->boolean("Is_Defaults");
+            $table->boolean("Is_client_visible");
             $table->datetime("created_date");
             $table->timestamps();
         });
@@ -31,6 +33,6 @@ class CreateLevels extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('levels');
+        Schema::dropIfExists('_periority');
     }
 }

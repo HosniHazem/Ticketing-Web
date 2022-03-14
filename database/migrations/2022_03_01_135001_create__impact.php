@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePeriority extends Migration
+class CreateImpact extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreatePeriority extends Migration
      */
     public function up()
     {
-        Schema::create('_periority', function (Blueprint $table) {
-            $table->increments('periority_id');
+        Schema::create('impacts', function (Blueprint $table) {
+            $table->increments('id');
             $table->string("name");
             $table->string("description");
-            $table->string("color");
             $table->boolean("Is_Active");
             $table->boolean("Is_Defaults");
             $table->boolean("Is_client_visible");
@@ -33,6 +32,6 @@ class CreatePeriority extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_periority');
+        Schema::dropIfExists('_impact');
     }
 }

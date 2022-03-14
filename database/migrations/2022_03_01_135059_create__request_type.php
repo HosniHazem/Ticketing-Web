@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImpact extends Migration
+class CreateRequestType extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateImpact extends Migration
      */
     public function up()
     {
-        Schema::create('_impact', function (Blueprint $table) {
-            $table->increments('impact_id');
+        Schema::create('request_types', function (Blueprint $table) {
+            $table->increments('id');
             $table->string("name");
             $table->string("description");
             $table->boolean("Is_Active");
@@ -32,6 +32,6 @@ class CreateImpact extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_impact');
+        Schema::dropIfExists('_request_type');
     }
 }

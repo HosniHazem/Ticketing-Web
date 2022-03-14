@@ -19,7 +19,27 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            $table->integer('role_id')->unsigned();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('display_name');
+            $table->string('user_name');;
+            $table->integer('phone_no');
+            $table->integer('cell_phone_no');
+            $table->string('city');
+            $table->string('state');
+            $table->string('country');
+            $table->integer('pin_code');
+            $table->string('job_title');
+            $table->string('address');
+            $table->integer('time_zone_id');
+            $table->string('organization');
+            $table->boolean('is_sendmail_password');
+            $table->string('description');
+            $table->binary('profile_picture');
+            $table->boolean('is_active');
+            $table->datetime('created_date');
+            $table->integer('external_code');
+            $table->integer('company_id');
             $table->timestamps();
         });
     }

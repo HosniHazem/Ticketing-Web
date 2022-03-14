@@ -13,8 +13,10 @@ class CreateCategoryMembers extends Migration
      */
     public function up()
     {
-        Schema::create('_category_members', function (Blueprint $table) {
-            $table->increments('category_id');
+        Schema::create('category_members', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('Category_id')->unsigned();
+            $table->foreign('Category_id')->references('id')->on('category')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('user_id');
             $table->string('category_name');
             $table->timestamps();

@@ -13,8 +13,8 @@ class CreateLocation extends Migration
      */
     public function up()
     {
-        Schema::create('_location', function (Blueprint $table) {
-            $table->increments('location_id');
+        Schema::create('locations', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('name');
             $table->string('description');
             $table->boolean('is_active');

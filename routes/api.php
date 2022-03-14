@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('{id}/show', [TicketController::class,'show']);
-Route::get('Tickets', [TicketController::class,'index']);
-Route::delete('{id}/delete', [TicketController::class,'destroy']);
-Route::put('{id}/update', [TicketController::class,'update']);
-Route::post('/create',[TicketController::class,'store']);
+//Route::middleware(['auth','isAdmin'])->group(function() {
+    Route::get('{id}/show', [TicketController::class,'show']);
+    Route::get('Tickets', [TicketController::class,'index']);
+    Route::delete('{id}/delete', [TicketController::class,'destroy']);
+    Route::put('{id}/update', [TicketController::class,'update']);
+    Route::post('/create',[TicketController::class,'store']);
+//});
+//Auth::routes();
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

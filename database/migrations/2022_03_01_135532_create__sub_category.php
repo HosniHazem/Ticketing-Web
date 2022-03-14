@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStatus extends Migration
+class CreateSubCategory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreateStatus extends Migration
      */
     public function up()
     {
-        Schema::create('_status', function (Blueprint $table) {
-            $table->increments('status_id');
+        Schema::create('sub_category', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade')->onUpdate('cascade');
             $table->string('name');
             $table->string('description');
-            $table->boolean('is_closed');
             $table->boolean('is_active');
             $table->boolean('is_default');
             $table->boolean('is_client_visible');
             $table->datetime('created_date');
+            $table->integer('external_code');
             $table->timestamps();
         });
     }
@@ -33,6 +35,6 @@ class CreateStatus extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_status');
+        Schema::dropIfExists('_sub_category');
     }
 }

@@ -13,8 +13,8 @@ class CreateUrgency extends Migration
      */
     public function up()
     {
-        Schema::create('_urgency', function (Blueprint $table) {
-            $table->increments('urgency_id');
+        Schema::create('urgency', function (Blueprint $table) {
+            $table->increments('id');
             $table->string("name");
             $table->string("description");
             $table->boolean("Is_Active");
