@@ -15,7 +15,6 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('DisplayTicketID');
             $table->String('Subject');
             $table->String('Description');
             $table->integer('RequestTypeID')->unsigned();
@@ -44,8 +43,6 @@ class CreateTicketsTable extends Migration
             $table->foreign('TicketModeID')->references('id')->on('ticket_models')->onDelete('cascade')->onUpdate('cascade');
             $table->String("CreatedUser");
             $table->String("UpdatedUser");
-            $table->datetime("CreatedDate");
-            $table->datetime("UpdatedDate");
             $table->String("RequestedUser");
             $table->String("AssignedUser");
             $table->datetime("AssignedDate");
